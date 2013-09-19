@@ -1,0 +1,43 @@
+body {
+	background-color: lightgray;
+}
+
+.header_container {
+	margin: 0.5em;
+	
+	background-color: white;
+	
+	border-style: solid;
+	border-width: 1px;
+	border-color: darkgray;
+	
+	padding: 0.5em;
+}
+
+h1 {
+	margin: 0;
+	margin-bottom: 0.3em;
+}
+
+form {
+	margin: 0;
+}
+
+.item {
+	margin: 0.5em;
+	
+	background-color: white;
+	
+	border-style: solid;
+	border-width: 1px;
+	border-color: darkgray;
+	
+	padding: 0.5em;
+}
+
+.item_title {
+	background-color: lightblue;
+	padding: 0.3em;
+	font-size: 120%;
+	font-weight: bold;
+}
