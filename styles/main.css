@@ -1,5 +1,6 @@
 body {
 	background-color: lightgray;
+	/*font-family: Verdana;*/
 }
 
 .header_container {
@@ -19,8 +20,16 @@ h1 {
 	margin-bottom: 0.3em;
 }
 
+.feed_meta_label {
+	font-weight: bold;
+}
+
 form {
 	margin: 0;
+}
+
+.phrase_input {
+	width: 15em;
 }
 
 .item {
@@ -40,4 +49,15 @@ form {
 	padding: 0.3em;
 	font-size: 120%;
 	font-weight: bold;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: darkgrey;
+}
+
+
+.item_meta {
+	background-color: lightpink;
+	padding: 0.3em;
+	font-size: 80%;
+	text-align: right;
 }

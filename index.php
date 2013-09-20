@@ -11,7 +11,13 @@ $keyword = $input->get('keyword');
 $feed = new Feed($location);
 $items = $feed->search($keyword);
 
+$parameters = array(
+	'location' => $location,
+	'keyword' => $keyword,
+);
+
 $layout = new Layout();
-echo $layout->apply_to($items);
+$layout->set_parameters($parameters);
+$layout->apply_to($items);
 
 ?>

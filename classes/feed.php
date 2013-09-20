@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/feed_item.php';
+
 class Feed {
 	
 	public $rss;
@@ -16,12 +18,14 @@ class Feed {
 		$namespace_string = 'http://purl.org/dc/elements/1.1/';
 		$this->rss->registerXPathNamespace($namespace_prefix, $namespace_string);
 		
+		$this->items = array();
 		foreach($this->rss->channel->item as $source_item){
-			$item = array();
-			$item['title']             = $source_item->title;
-			$item['creator']           = $source_item->xpath('dc:creator')[0];
-			$item['publication_date']  = $source_item->pubDate;
-			$item['content']           = $source_item->xpath('content:encoded')[0];
+			$item = new Feed_Item();
+			$item->set_title($source_item->title);
+			$item->set_creator($source_item->xpath('dc:creator')[0]);
+			$item->set_publication_date($source_item->pubDate);
+			$item->set_description($source_item->description);
+			$item->set_content($source_item->xpath('content:encoded')[0]);
 			$this->items[] = $item;
 		}
 		
@@ -32,7 +36,7 @@ class Feed {
 		
 		foreach($this->items as $item){
 			$regex = '/.*' . preg_quote($keyword, '/') . '.*/';
-			if(preg_match($regex, $item['content'])){
+			if(preg_match($regex, $item->get_description())){
 				$filtered_items[] = $item;
 			}
 		}
